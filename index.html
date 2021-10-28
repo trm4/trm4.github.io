@@ -1,30 +1,26 @@
-<!DOCTYPE HTML>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <title>index.html</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-  <style type="text/css">
-    html, body, #container {
-      height: 100%;
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <title>This is Thomas McShane's Page</title>
+    </head>
+    <body>
+        <p>
+            Here is Thomas McShane's visualization for total square footage broken down by representative representative:
+        </p>
+        <div id="myviz">
+        </div>
+    </body>
+    <script>
+        mySpec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {"url": "https://raw.githubusercontent.com/trm4/trm4.github.io/main/building_inventory.csv"},
+    "mark": "bar",
+    "encoding": {
+        "x": {"field": "Rep Full Name", "type": "nominal"},
+        "y": {"field": "Square Footage", "type": "quantitative", "aggregate":"sum"}
     }
-    body, #container {
-      overflow: hidden;
-      margin: 0;
-    }
-    #iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
-  <div id="container">
-    <iframe id="iframe" sandbox="allow-scripts" src="/jupyter/user/trm4/files/trm4.github.io/index.html"></iframe>
-  </div>
-</body>
-
-</html>
+};
+        vegaEmbed('#myviz', mySpec);
+    </script>
