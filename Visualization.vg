@@ -1,0 +1,9 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {"url": "https://raw.githubusercontent.com/trm4/trm4.github.io/main/building_inventory.csv"},
+    "mark": "bar",
+    "encoding": {
+        "x": {"field": "Rep Full Name", "type": "nominal"},
+        "y": {"field": "Square Footage", "type": "quantitative", "aggregate":"sum"}
+    }
+}
